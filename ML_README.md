@@ -28,7 +28,7 @@ The system comprises two primary phases: an enhanced preprocessing phase utilizi
 #### ML Model for Scoring
 
 - **Training a Custom Model**: Train a supervised ML model to predict document relevance based on the features extracted above. This could involve:
-  - A dataset of documents with manually labeled relevance scores for various terms.
+  - A dataset of documents with manually labeled relevance scores for various terms. And, by the way, the manual labels can be much more easily generated nowadays with low human effort through guided prompt engineering coupled with the use of powerful LLMs (like ChatGPT 4.0 with extensions).
   - Feature vectors composed of TF-IDF scores, semantic embeddings, and HTML tag weights.
   - A regression or classification model (e.g., Random Forest, Gradient Boosting, or a simple neural network) that learns to predict the relevance of a document to specific terms based on these features.
 
@@ -56,7 +56,7 @@ The system comprises two primary phases: an enhanced preprocessing phase utilizi
 ## Data Structures and Storage
 
 - **Enhanced Inverted Index**: A key component of the system, it maps terms to documents and their relevance scores, enabling efficient O(1) querying.
-- **Document Metadata**: Includes additional information required for ranking and presentation, such as document length, title, and URL.
+- **[Future Work] Document Metadata**: Includes additional information required for ranking and presentation, such as document length, title, and URL.
 
 ## ML Models and Technologies
 

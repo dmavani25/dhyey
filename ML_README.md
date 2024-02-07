@@ -1,4 +1,4 @@
-# Detailed Design Document for Enhanced Document Retrieval System
+# [Stage 0] Design Document for Document Retrieval System
 
 ## Objective
 

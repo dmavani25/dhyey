@@ -2,23 +2,18 @@
 
 ## Objective
 
-The objective is to create a document retrieval system that accurately identifies and ranks static HTML documents based on their relevance to a given search term, leveraging machine learning (ML) for advanced feature extraction and scoring. This system aims to provide efficient querying capabilities on an average local machine with an O(1) time complexity for retrieving results.
+The objective is to create a document retrieval system that accurately identifies and ranks static HTML documents based on their relevance to a given search term (one word only), leveraging machine learning (ML) for advanced feature extraction and scoring. This system aims to provide efficient querying capabilities on an average local machine with an O(1) time complexity for retrieving results (or querying) by performing the pre-processing beforehand, and thus saving the computational time in querying mechanism.
 
 ## System Overview
 
-The system comprises two primary phases: an enhanced preprocessing phase utilizing ML for in-depth document analysis and feature extraction, and a querying phase designed for fast retrieval of documents based on relevance scores. This document details the methodologies for relevance scoring, indexing, and the ML models employed in the preprocessing phase.
+The system comprises two primary phases: an enhanced preprocessing phase utilizing ML for in-depth document analysis and feature extraction, and a querying phase designed for fast retrieval of documents based on relevance scores. This document details the methodologies for relevance scoring, indexing, and the ML models employed in our framework.
 
 ## 1. Preprocessing Phase
 
 ### 1.1 HTML Parsing and Feature Extraction
 
-#### Process
-
-- **Text Extraction**: Utilize a parsing API to extract plain text from HTML documents. This includes all textual content, ignoring scripts and non-visible elements.
-- **Structural Analysis**: Extract HTML structural elements such as headings (H1, H2), bold text, links, and lists. These elements often indicate key sections and terms within the document.
-
-#### ML Feature Extraction
-
+- **Text Extraction**: Utilize a parsing API (assumed to be given to us) to extract plain text from HTML documents. This includes all textual content, ignoring scripts and non-visible elements.
+- **Structural Analysis**: Extract HTML structural elements such as headings (H1, H2), bold text, links, and lists. These elements often indicate key sections and terms within the document, which can be of more importance and may better represent a given document.
 - **Semantic Embedding Generation**: Use NLP models (e.g., BERT, GPT) to generate semantic embeddings from the extracted text. These embeddings capture the contextual meanings of phrases and terms within each document.
 - **Structural Feature Extraction**: Assign weights to text based on HTML tags, recognizing that certain tags (e.g., H1, bold) may indicate higher importance of the enclosed text.
 
@@ -73,12 +68,9 @@ The system comprises two primary phases: an enhanced preprocessing phase utilizi
 - **Hardware**: An average local machine with enhanced capabilities (e.g., additional RAM for large indices, GPU for ML model training).
 - **Software**: Requires NLP libraries for text processing, ML libraries for model training and inference, and custom software for managing the inverted index and handling queries.
 
-## Scalability and Optimization
+## Potential Scalability and Optimization
 
 - **Parallel Processing**: Utilize multi-threading or multiprocessing during the preprocessing phase for faster parsing, feature extraction, and model training.
-- **Index Compression**: Implement compression techniques to reduce
-
- the storage and memory footprint of the inverted index, ensuring the system remains efficient even as the document corpus grows.
 
 ## Conclusion
 

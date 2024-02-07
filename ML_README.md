@@ -4,6 +4,11 @@
 
 The objective is to create a document retrieval system that accurately identifies and ranks static HTML documents based on their relevance to a given search term (one word only), leveraging ML and AI for advanced feature extraction and scoring. This system aims to provide efficient querying capabilities on an average local machine with an O(1) time complexity for retrieving results (or querying) by performing the more computationally intensive pre-processing beforehand, and thus making the access easier and faster by saving the computational time in querying mechanism.
 
+## Assumptions
+
+- ABC
+- DEF
+
 ## System Overview
 
 The system comprises two primary phases: an enhanced preprocessing phase utilizing ML and AI for in-depth document analysis and feature extraction, and a querying phase designed for fast retrieval of documents based on relevance scores. This document details the methodologies for relevance scoring, indexing, and the ML models employed in our framework.

@@ -1,5 +1,5 @@
 # [Stage 0] Design Document for Document Retrieval System
-
+- Dhyey Mavani, Computer Science, Mathematics and Statistics at Amherst College
 ## Objective
 
 The objective is to create a document retrieval system that accurately identifies and ranks static HTML documents based on their relevance to a given search term (one word only), leveraging machine learning (ML) for advanced feature extraction and scoring. This system aims to provide efficient querying capabilities on an average local machine with an O(1) time complexity for retrieving results (or querying) by performing the pre-processing beforehand, and thus saving the computational time in querying mechanism.

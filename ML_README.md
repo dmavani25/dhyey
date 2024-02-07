@@ -34,7 +34,7 @@ The system comprises two primary phases: an enhanced preprocessing phase utilizi
 
 ### 1.3 Inverted Index Creation with Relevance Scores
 
-- **Index Structure**: Create an inverted index where each entry consists of a term and a sorted list of documents containing that term. Each document in the list is associated with a relevance score derived from the ML model.
+- **Index Structure**: Create an inverted index where each entry consists of a term and a sorted list of top k "most relevant" documents containing that term. 
 - **Serialization**: Serialize the inverted index into a format optimized for quick loading and access, ensuring the querying phase can retrieve documents efficiently.
 
 ## 2. Querying Phase

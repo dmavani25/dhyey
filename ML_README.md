@@ -23,10 +23,9 @@ The primary goal of this project is to develop a document retrieval system capab
 
 ### Technical Specifications
 
-- **Indexing Strategy:** Utilizing ML and AI, the system will create an advanced index of all documents by extracting key features and metadata from the raw HTML content. This index will serve as the foundation for the retrieval process, enabling rapid access to relevant documents based on the search term.
+- **Weighing Strategy:** Utilizing ML and AI, the system will create an advanced weight-index of all documents by extracting key features from the raw HTML content. This index will serve as the foundation for the retrieval process, enabling rapid access to relevant documents based on the search term.
 - **Retrieval Strategy:** The core of the retrieval system will be a storage designed to operate with O(1) time complexity during the querying phase. This will likely involve a combination of hashing techniques and precomputed relevance scores to ensure immediate access to indexed documents based on the queried word.
 - **Relevance Scoring:** An AI-based scoring model will be developed to evaluate the relevance of documents to the search term. This model will consider various factors, including keyword frequency, document structure, and possibly the semantic context of the search term within the document.
-- **Performance Optimization:** Special attention will be given to optimizing the indexing and retrieval processes to ensure they can be executed efficiently on a local machine. This will involve careful management of computational resources and possibly the implementation of parallel processing techniques.
 
 ## 1. Preprocessing Phase
 
@@ -79,39 +78,16 @@ This structure allows for efficient retrieval of document relevance scores based
 
 ## 2. Querying Phase
 
-### 2.1 Map Loading
+### 2.1 Loading the Map in Memory
 
 - Load the organized hashmap into memory at the start of the querying phase for best performance in retrievals.
 
-### 2.2 Query Processing
+### 2.2 Query Processing and Execution
 
 - **Normalization**: Apply the same text normalization (stemming and stop word removal) to the search term as used in preprocessing.
-- **Retrieval**: Instantly retrieve the pre-sorted list of documents and their relevance scores for the search term from the inverted index.
+- **Retrieval**: Instantly retrieve the pre-sorted sub-hashmap associated to that word, and return the top k (say 10) document names.
 
-### 2.3 Filtering and Ranking
+## [FUTURE] Potential Scalability and Optimization (While Staying on the Local Machine)
 
-- **Threshold Application**: Filter the retrieved documents to include only those with relevance scores above a predetermined threshold. This ensures only the most relevant documents are presented.
-- **Ranking**: Since the documents are pre-sorted by relevance score in the index, they are already in the correct order for presentation.
-
-## Data Structures and Storage
-
-- **Enhanced Inverted Index**: A key component of the system, it maps terms to documents and their relevance scores, enabling efficient O(1) querying.
-- **[Future Work] Document Metadata**: Includes additional information required for ranking and presentation, such as document length, title, and URL.
-
-## ML Models and Technologies
-
-- **NLP Models for Semantic Analysis**: Pre-trained models like BERT or GPT, fine-tuned for the specific task of semantic embedding generation from document text.
-- **ML Frameworks**: TensorFlow or PyTorch for developing and training custom models for document scoring, leveraging features extracted from text and HTML structure.
-
-## System Requirements
-
-- **Hardware**: An average local machine with enhanced capabilities (e.g., additional RAM for large indices, GPU for ML model training).
-- **Software**: Requires NLP libraries for text processing, ML libraries for model training and inference, and custom software for managing the inverted index and handling queries.
-
-## Potential Scalability and Optimization
-
-- **Parallel Processing**: Utilize multi-threading or multiprocessing during the preprocessing phase for faster parsing, feature extraction, and model training.
-
-## Conclusion
-
-This design document outlines a sophisticated document retrieval system that uses machine learning to enhance the analysis, scoring, and indexing of HTML documents for relevance. By employing advanced NLP techniques and custom ML models, the system can accurately rank documents based on their relevance to search terms, ensuring efficient and effective retrieval on an average local machine.
+- **Parallel Processing**: Utilize multi-threading or multiprocessing during the preprocessing phase for faster parsing, feature extraction, and model training purposes.
+- **Cosine Similarity for Robustness**: To make the system more error proof, if the entered query word doesn't match is any keys in the parent map constructed, then we check the cosine similarity of the same with some words that are present in the map as keys. 

@@ -2,7 +2,7 @@
 
 ### Author Information
 - **Name:** Dhyey Mavani
-- **Major:** Computer Science, Mathematics and Statistics
+- **Major(s):** Computer Science, Mathematics and Statistics
 - **Institution:** Amherst College
 - **Class Year:** 2025
   
@@ -72,7 +72,7 @@ It is important to note that these weights are initial estimates and may require
 }
 ```
 
-This structure allows for efficient retrieval of document relevance scores based on specific search terms. By aggregating these scores and normalizing them across all documents for a given word, the system provides a ranking of each document between 0 and 1 for a given word.
+This structure allows for efficient retrieval of document relevance scores based on specific search terms. By **aggregating** these scores and **normalizing** them across all documents for a given word, the system provides a weight of each document between 0 and 1 for a given word.
 
 - **Weight Adjustment Through Pre-trained LLMs**: We provide the pretrained LLMs (e.g. GPT, Bard, Claude, LLaMa etc.) with the above mentioned map, and ask each of them to provide us with a version of the provided map, where the weights of documents are modified on a word-by-word basis based on the "contextual information" that they captured. Then, we collate and average the resulting tables given by each of the available LLMs with the initial weighted map we had provided the LLMs to ensure we have some regularization in our system.
 

@@ -5,10 +5,16 @@
 
 The objective is to create a document retrieval system that accurately identifies and ranks static HTML documents based on their relevance to a given search term (one word only), leveraging ML and AI for advanced feature extraction and scoring. This system aims to provide efficient querying capabilities on an average local machine with an O(1) time complexity for retrieving results (or querying) by performing the more computationally intensive pre-processing beforehand, and thus making the access easier and faster by saving the computational time in querying mechanism.
 
-## Assumptions
+## Assumptions and Specifications
 
-- ABC
-- DEF
+- We are given 100k documents
+- Documents can be assumed to be fixed
+- Documents can be assumed to be all in raw HTML format (average size 4 kB per document)
+- We should be able to complete the task with a local machine
+- We can ignore the issue with synonyms for now
+- We are free to define "relevance" as we think reasonable for now as long as we show our reasoning
+- We can assume that parsing, stemming, and stop-word-removal APIs are already given and are available to us
+- Please note that the documents are static so there is no meta information (i.e. last time the document was opened)
 
 ## System Overview
 

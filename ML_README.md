@@ -1,5 +1,6 @@
 # [Stage 0] Design Document for Document Retrieval System
-- Dhyey Mavani, Computer Science, Mathematics and Statistics at Amherst College
+- Dhyey Mavani, Computer Science, Mathematics and Statistics major at Amherst College in the class of 2025
+  
 ## Objective
 
 The objective is to create a document retrieval system that accurately identifies and ranks static HTML documents based on their relevance to a given search term (one word only), leveraging ML and AI for advanced feature extraction and scoring. This system aims to provide efficient querying capabilities on an average local machine with an O(1) time complexity for retrieving results (or querying) by performing the more computationally intensive pre-processing beforehand, and thus making the access easier and faster by saving the computational time in querying mechanism.

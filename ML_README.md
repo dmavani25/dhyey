@@ -1,24 +1,32 @@
 # [Stage 0] Design Document for Document Retrieval System
-- Dhyey Mavani, Computer Science, Mathematics and Statistics major at Amherst College in the class of 2025
+
+### Author Information
+- **Name:** Dhyey Mavani
+- **Major:** Computer Science, Mathematics and Statistics
+- **Institution:** Amherst College
+- **Class Year:** 2025
   
 ## Objective
 
-The objective is to create a document retrieval system that accurately identifies and ranks static HTML documents based on their relevance to a given search term (one word only), leveraging ML and AI for advanced feature extraction and scoring. This system aims to provide efficient querying capabilities on an average local machine with an O(1) time complexity for retrieving results (or querying) by performing the more computationally intensive pre-processing beforehand, and thus making the access easier and faster by saving the computational time in querying mechanism.
+The primary goal of this project is to develop a document retrieval system capable of accurately identifying and ranking static HTML documents based on their relevance to a given single-word search term. The system will employ machine learning (ML) and artificial intelligence (AI) techniques for sophisticated feature extraction and scoring to optimize search results. This initiative seeks to deliver efficient querying capabilities on standard local machines by achieving an O(1) time complexity for result retrieval. This efficiency is made possible by conducting the bulk of the computation-intensive processing in advance, thus streamlining the querying process and significantly reducing computational time during the search phase.
 
 ## Assumptions and Specifications
 
-- We are given 100k documents
-- Documents can be assumed to be fixed
-- Documents can be assumed to be all in raw HTML format (average size 4 kB per document)
-- We should be able to complete the task with a local machine
-- We can ignore the issue with synonyms for now
-- We are free to define "relevance" as we think reasonable for now as long as we show our reasoning
-- We can assume that parsing, stemming, and stop-word-removal APIs are already given and are available to us
-- Please note that the documents are static so there is no meta information (i.e. last time the document was opened)
+### Given Conditions
+- **Document Count:** The system will handle a dataset comprising 100,000 documents.
+- **Document Stability:** Documents are considered static, with no changes expected post-indexing.
+- **Document Format:** All documents are in raw HTML format, with an average file size of 4 kB.
+- **Computational Environment:** The entire indexing and retrieval process is designed to be executed on a local machine without the need for extensive computing resources.
+- **Synonyms Handling:** The current scope of the project does not include synonym resolution; this aspect may be considered for future enhancements.
+- **Relevance Definition:** The system allows for a flexible interpretation of "relevance" based on the specific requirements of the search query and the underlying logic of the retrieval algorithms. The criteria for relevance will be explicitly defined and justified within the project documentation.
+- **Preprocessing Tools:** It is assumed that necessary preprocessing tools, including parsing, stemming, and stop-word removal APIs, are readily available and accessible for use in the project. These tools are critical for preparing the documents for efficient indexing and retrieval.
 
-## System Overview
+### Technical Specifications
 
-The system comprises two primary phases: an enhanced preprocessing phase utilizing ML and AI for in-depth document analysis and feature extraction, and a querying phase designed for fast retrieval of documents based on relevance scores. This document details the methodologies for relevance scoring, indexing, and the ML models employed in our framework.
+- **Indexing Strategy:** Utilizing ML and AI, the system will create an advanced index of all documents by extracting key features and metadata from the raw HTML content. This index will serve as the foundation for the retrieval process, enabling rapid access to relevant documents based on the search term.
+- **Retrieval Strategy:** The core of the retrieval system will be a storage designed to operate with O(1) time complexity during the querying phase. This will likely involve a combination of hashing techniques and precomputed relevance scores to ensure immediate access to indexed documents based on the queried word.
+- **Relevance Scoring:** An AI-based scoring model will be developed to evaluate the relevance of documents to the search term. This model will consider various factors, including keyword frequency, document structure, and possibly the semantic context of the search term within the document.
+- **Performance Optimization:** Special attention will be given to optimizing the indexing and retrieval processes to ensure they can be executed efficiently on a local machine. This will involve careful management of computational resources and possibly the implementation of parallel processing techniques.
 
 ## 1. Preprocessing Phase
 
